@@ -8,6 +8,7 @@ import Navbar from './components/Navbar/Navbar';
 import News from './components/News/News';
 import Profilecomp from './components/Profile/Profilecomp';
 import Settings from './components/Settings/Settings';
+import Users from "./components/Users/Users";
 
 
 
@@ -27,6 +28,7 @@ const App = (props) => {
           <Routes>
             <Route path="/dialogs/*" element={<DialogsConteiner/>} />
             <Route path="/profile" element={<Profilecomp/>} />
+            <Route path="/users" element={<Users/>} />
             <Route path="/news" element={<News />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/music" element={<Music />} />
