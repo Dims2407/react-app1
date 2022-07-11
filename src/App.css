@@ -4,6 +4,7 @@
   width: 1200px;
 
 
+
   grid-template-areas: 
   "h h"
   "n c";
@@ -17,7 +18,7 @@
 
 .app-wrapper-content {
   grid-area: c;
-    background-color: rgba(19, 22, 228, 0.829);
+    background-color: rgba(59, 159, 243, 0.83);
 }
 
 .App-logo {
