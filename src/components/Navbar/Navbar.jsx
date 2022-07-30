@@ -8,7 +8,7 @@ const Navbar = () => {
   const ActiveLink = ({isActive}) => isActive ? s.active : s.item ;
     return <nav className={s.nav}>
         <div className={s.item}>
-        <NavLink to="/profile" className = {ActiveLink}>Profile</NavLink>
+        <NavLink to='/profile' className = {ActiveLink}>Profile</NavLink>
         </div>
         <div className={s.item}>
           <NavLink to='/dialogs' className = {ActiveLink}>Messeges</NavLink>

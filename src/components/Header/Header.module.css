@@ -8,5 +8,11 @@
     margin-left: 3px;
   }
 
+  .loginBlock {
+      float: right;
 
+  }
+.loginBlock a {
+    color: aliceblue;
+}
   
