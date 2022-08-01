@@ -19,23 +19,18 @@ let AddNewPostForm = (props) => {
       </form>
   )
 }
-
 const AddNewPostFormRedux = reduxForm({form: 'profileAddNewPostForm'})(AddNewPostForm)
 
 const Myposts = (props) => {
 
+    let postsElements = props.posts.map(p => <Post message={p.message} likesCount={p.likesCount} />)
 
-  let postsElements = props.posts.map(p => <Post message={p.message} likesCount={p.likesCount} />)
-
-
-
-  let onaddPost = (values) => {
+    let onaddPost = (values) => {
     props.addPost(values.newPostText);
    
   }
-
-
-  return <div>
+  return (
+    <div>
     <h3>My posts</h3>
     <div>New Posts</div>
     <AddNewPostFormRedux onSubmit={onaddPost} />
@@ -43,6 +38,7 @@ const Myposts = (props) => {
       {postsElements}
     </div>
   </div >
+)
 }
 
 
