@@ -2,7 +2,7 @@ import React, {Component, Suspense}  from 'react';
 import {Route, Routes, withRouter} from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
-
+import Login from "./components/Login/Login";
 //import Music from './components/Music/Music';
 //import News from './components/News/News';
 //import Settings from './components/Settings/Settings';
@@ -17,8 +17,8 @@ const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileCo
 //import ProfileContainer from "./components/Profile/ProfileContainer";
 const UsersConteiner = React.lazy(() => import('./components/Users/UsersConteiner'));
 //import UsersConteiner from "./components/Users/UsersConteiner";
-const Login = React.lazy(() => import('./components/Login/Login'));
-//import Login from "./components/Login/Login";
+//const Login = React.lazy(() => import('./components/Login/Login'));
+
 
 class App extends Component {
 
