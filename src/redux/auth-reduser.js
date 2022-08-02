@@ -37,7 +37,7 @@ const authReduser = (state = initialState, action) => {
 
 export const setAuthUserData = (id, email, login, isAuth) => ({type: SET_USER_DATA, data: {id, email, login, isAuth}})
 
-export const setCaptchaUrlSuccess = (captchaUrl) => ({type: GET_CAPTCHA_URL_SUCCESS, data: {captchaUrl}})
+export const setCaptchaUrlSuccess = (captchaUrl) => ({type: GET_CAPTCHA_URL_SUCCESS, payload: {captchaUrl}})
 
 export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})
 
@@ -60,7 +60,7 @@ export const login = (email, password, rememberMe) => async (dispatch) => {
                 dispatch(getAuthUserData())
             } else {
                 if (response.data.resultCode === 10) {
-                    dispatch(getCaptchaUrl)
+                    dispatch(getCaptchaUrl())
             }
 
             let message = response.data.messages.length > 0 ? response.data.messages[0] : "Some error"
@@ -69,11 +69,9 @@ export const login = (email, password, rememberMe) => async (dispatch) => {
 }
 
 export const getCaptchaUrl = () => async (dispatch) => {
-
     let response = await securityAPI.getCaptchaUrl()
     const captchaUrl = response.data.url
-
-    dispatch(setCaptchaUrlSuccess)
+    dispatch(setCaptchaUrlSuccess(captchaUrl))
 }
 
 
