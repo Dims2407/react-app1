@@ -1,9 +1,20 @@
 .content img {
-  height: 250px;
-  width:  250px;
+  height: 300px;
+  width:  1000px;
 
 }
 
-.descrblock {
-    padding-left: 10px;
+.content {
+    padding: 10px;
+
+}
+
+.avatar img {
+    padding-top: 5px;
+    height: auto;
+    width: auto;
+}
+
+.contacts {
+    padding-left: 25px;
 }
