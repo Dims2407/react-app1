@@ -1,6 +1,6 @@
 import React from "react";
-import {reduxForm} from "redux-form";
-import {CreateField, Input} from "../common/controlforms/FormsControls";
+import {Field, reduxForm} from "redux-form";
+import {Input} from "../common/controlforms/FormsControls";
 import {required} from "../../utilities/validators/validators";
 import {connect} from "react-redux";
 import {login} from "../../redux/auth-reduser";
@@ -8,15 +8,22 @@ import {Navigate} from "react-router-dom";
 import s from "../common/controlforms/FormsControl.module.css"
 
 
-const LoginForm = (handleSubmit, error, captchaUrl) => {
+const LoginForm = (handleSubmit, error) => {
     return (
         <form onSubmit={handleSubmit}>
-            {CreateField("Email", "email", [required], Input)}
-            {CreateField("Password", "password", [required], Input,{type: "password"})}
-            {CreateField(null, "rememberMe", [], Input, {type: "checkbox"}, "remember me")}
-
-           {captchaUrl && <img src={captchaUrl} />}
-
+            <div>
+                <Field placeholder={"email"} name={"email"}
+                       validate={[required]}
+                       component={Input}/>
+            </div>
+            <div>
+                <Field placeholder={"Password"} name={"password"} type={"password"}
+                       validate={[required]}
+                       component={Input}/>
+            </div>
+            <div>
+                <Field component={Input} name={"rememberMe"} type={"Checkbox"}/> remember me
+            </div>
             {error && <div className={s.formSummaryError}>
                 {error}
             </div>}
@@ -43,11 +50,10 @@ props.login(formData.email, formData.password, formData.rememberMe )
 
     return <div>
         <h1>Login</h1>
-        <LoginReduxForm onSubmit={onSubmit} captchaUrl={props.captchaUrl} />
+        <LoginReduxForm onSubmit={onSubmit} />
         </div>
 }
 const mapStateToProps = (state) => ({
-    isAuth: state.auth.isAuth,
-    captchaUrl: state.auth.captchaUrl
+    isAuth: state.auth.isAuth
 })
     export default connect (mapStateToProps, {login}) (Login);
