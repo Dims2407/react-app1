@@ -1,5 +1,5 @@
 import React, {Component, Suspense}  from 'react';
-import {Route, Routes, withRouter} from 'react-router-dom';
+import {Route, Routes} from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import Login from "./components/Login/Login";
@@ -43,7 +43,7 @@ class App extends Component {
                 <Route path="/dialogs/*" element={<DialogsConteiner/>}/>
                 <Route path="/profile/:userId" element={<ProfileContainer/>}/>
                 <Route path="/profile/*" element={<ProfileContainer/>}/>
-                <Route path="/users" element={<UsersConteiner/>}/>
+                <Route path="/users" element={<UsersConteiner pageTitle={"Воины"} />}/>
                 <Route path="/login" element={<Login/>}/>
 
 
