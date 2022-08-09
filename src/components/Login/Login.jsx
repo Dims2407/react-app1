@@ -8,19 +8,19 @@ import {Navigate} from "react-router-dom";
 import s from "../common/controlforms/FormsControl.module.css"
 
 
-const LoginForm = (props) => {
+const LoginForm = ({handleSubmit, captchaUrl, error}) => {
 
     return (
-        <form onSubmit={props.handleSubmit}>
+        <form onSubmit={handleSubmit}>
             {CreateField("Email", "email", [required], Input)}
             {CreateField("Password", "password", [required], Input,{type: "password"})}
             {CreateField(null, "rememberMe", [], Input, {type: "checkbox"}, "remember me")}
 
-            {props.captchaUrl && <img src={props.captchaUrl} />}
-            {props.captchaUrl &&  CreateField("Symbols from image", "captcha", [required], Input)}
+            {captchaUrl && <img src={captchaUrl} />}
+            {captchaUrl &&  CreateField("Symbols from image", "captcha", [required], Input)}
 
-            {props.error && <div className={s.formSummaryError}>
-                {props.error}
+            {error && <div className={s.formSummaryError}>
+                {error}
             </div>}
             <div>
                 <button>Login</button>
