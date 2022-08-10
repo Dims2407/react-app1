@@ -2,10 +2,9 @@ import React from 'react'
 import DialogItem from './DialogItem/DialogItem'
 import Message from './DialogItem/Message/Message'
 import s from "./Dialogs.module.css"
-import handleSubmit from "redux-form/lib/handleSubmit";
-import {Field, reduxForm} from "redux-form";
-import {Textarea} from "../common/controlforms/FormsControls";
-import {maxLengthCreator, required} from "../../utilities/validators/validators";
+import {Field, reduxForm} from "redux-form"
+import {Textarea} from "../common/controlforms/FormsControls"
+import {maxLengthCreator, required} from "../../utilities/validators/validators"
 
 
 
@@ -15,10 +14,10 @@ const Dialogs = (props) => {
     let state = props.messagesPage;
 
     let dialogsElements = state.dialogs
-        .map(d => <DialogItem name={d.name} key={d.id} id={d.id} />);
+        .map(d => <DialogItem name={d.name} key={d.id} id={d.id} />)
     let messagesElements = state.messages
-        .map(m => <Message message={m.message} key={m.id} id={m.id} />);
-    let newMessageBody = state.newMessageBody;
+        .map(m => <Message message={m.message} key={m.id} id={m.id} />)
+    let newMessageBody = state.newMessageBody
 
 
     let addNewMessage = (values) => {

@@ -7,8 +7,6 @@ import s from "./../Dialogs.module.css"
 
 function DialogItem(props) {
 
-
-
     let path = "/dialogs/" + props.id;
 
     return <div className={s.dialog + ' ' + s.active}>

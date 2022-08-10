@@ -3,7 +3,6 @@ import Profile from "./Profile";
 import {connect} from "react-redux";
 import {getStatus, getUserProfile, savePhoto, saveProfile, updateStatus} from '../../redux/profile-reduser'
 import {Navigate, useParams, useLocation, useNavigate} from 'react-router-dom'
-
 import {compose} from "redux";
 
 
