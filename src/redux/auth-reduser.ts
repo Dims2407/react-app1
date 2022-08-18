@@ -1,5 +1,8 @@
-import {authAPI, ResultCodeEnum, ResultCodeForCaptcha, securityAPI, usersAPI} from "../api/api";
+import {ResultCodeEnum, ResultCodeForCaptcha} from "../api/api";
 import {stopSubmit} from "redux-form";
+import {usersAPI} from "../api/usersAPI";
+import {authAPI} from "../api/authAPI";
+import {securityAPI} from "../api/securityAPI";
 
 
 const SET_USER_DATA = 'SET_USER_DATA';
@@ -85,7 +88,7 @@ export const getAuthUserData = () => async (dispatch: any) => {
 }
 
 
-export const login = (email:string, password:string, rememberMe:boolean, captcha: undefined) => async (dispatch: any) => {
+export const login = (email:string, password:string, rememberMe:boolean, captcha: string) => async (dispatch: any) => {
 
     let data = await authAPI.login(email, password, rememberMe, captcha)
 
