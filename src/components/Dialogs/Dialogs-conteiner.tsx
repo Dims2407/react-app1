@@ -14,15 +14,10 @@ let mapStateToProps = (state: AppStateType) => {
         messagesPage: state.messagesPage
     }
 }
-let mapDispatchToProps = (dispatch: any) => {
-    return {
-        sendMessage: (newMessageBody: string) => { dispatch(actions.sendMessageCreator(newMessageBody))}
-    }
-}
 
 
-export default compose(
-    connect(mapStateToProps, mapDispatchToProps),
+export default compose<React.ComponentType>(
+    connect(mapStateToProps, {...actions}),
     WithAuthRedirect
 )(// @ts-ignore
     Dialogs)

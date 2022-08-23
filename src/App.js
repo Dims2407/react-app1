@@ -3,13 +3,15 @@ import {Route, Routes} from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import Login from "./components/Login/Login";
-//import Music from './components/Music/Music';
-//import News from './components/News/News';
-//import Settings from './components/Settings/Settings';
 import HeaderContainer from "./components/Header/HeaderContainer";
 import {connect} from "react-redux";
 import {initializeApp} from "./redux/app-reducer";
 import Preloader from "./components/common/preloader/preloader";
+import  {AppStateType} from "./redux/redux-store";
+import {compose} from "redux";
+//import Music from './components/Music/Music';
+//import News from './components/News/News';
+//import Settings from './components/Settings/Settings';
 
 const DialogsConteiner = React.lazy(() => import('./components/Dialogs/Dialogs-conteiner'));
 //import DialogsConteiner from './components/Dialogs/Dialogs-conteiner';
@@ -20,22 +22,40 @@ const UsersConteiner = React.lazy(() => import('./components/Users/UsersConteine
 //const Login = React.lazy(() => import('./components/Login/Login'));
 
 
-class App extends Component {
+// type MapPropsType = ReturnType<typeof mapStateToProps>
+// type DispatchPropsType = {
+//     initializeApp: ()=>void
+// }
+
+
+
+class App extends Component { //<MapPropsType & DispatchPropsType> {
+
+    // catchAllUndandledErrors = (e: PromiseRejectionEvent) => {
+    //     alert("Some error occured")
+    // }
 
     componentDidMount() {
     this.props.initializeApp()
+        //window.addEventListener("unhandlerejection", this.catchAllUndandledErrors )
   }
+  // componentWillUnmount() {
+  //     window.addEventListener("unhandlerejection", this.catchAllUndandledErrors )
+  // }
 
-  render() {
+    render() {
     if (!this.props.initialized) {
         return <Preloader/>
     }
 
 
+
+
+        // @ts-ignore
         return (
 
           <div className="app-wrapper">
-            <HeaderContainer/>
+              <HeaderContainer/>
             <Navbar/>
             <div className="app-wrapper-content">
              <Suspense fallback={<Preloader/>} >
@@ -63,5 +83,6 @@ const mapStateToProps = (state) => ({
     initialized: state.app.initialized
 })
 
-export default connect (mapStateToProps, {initializeApp})
-(App);
+
+export default compose(connect (mapStateToProps, {initializeApp})
+(App) ) ;
