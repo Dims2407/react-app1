@@ -1,13 +1,19 @@
 import React from "react";
 import style from "../../common/controlforms/FormsControl.module.css"
 import s from "./ProfileInfo.module.css";
+import {CreateField, GetStringKeys, Input, Textarea} from "../../common/controlforms/FormsControls";
+import {InjectedFormProps, reduxForm} from "redux-form";
+import {ProfileType} from "../../../Types/types";
 
 
-import {CreateField, Input, Textarea} from "../../common/controlforms/FormsControls";
-import {reduxForm,} from "redux-form";
 
+type PropsType = {
+    profile: ProfileType
 
-const ProfileDataForm = ({handleSubmit, profile, error}) => {
+}
+type ProfileTypeKeys = GetStringKeys<ProfileType>
+
+const ProfileDataForm: React.FC<InjectedFormProps<ProfileType, PropsType> & PropsType> = ({handleSubmit, profile, error}) => {
     return <form onSubmit={handleSubmit}>
          <div><button>save</button></div>
         {error && <div className={style.formSummaryError}>
@@ -16,21 +22,21 @@ const ProfileDataForm = ({handleSubmit, profile, error}) => {
         <div>
             <b>Full Name:</b>
 
-            {CreateField ("Full name", "fullName", [], Input)}
+            {CreateField<ProfileTypeKeys> ("Full name", "fullName", [], Input)}
         </div>
 
         <div>
             <b>Looking For A Job:</b>
-            {CreateField ("", "lookingForAJob", [], Input, {type: "checkbox"})}
+            {CreateField<ProfileTypeKeys> ("", "lookingForAJob", [], Input, {type: "checkbox"})}
         </div>
 
             <div><b>My Prof skills:</b> :
-                {CreateField ("My Prof skills", "lookingForAJobDescription", [], Textarea)}
+                {CreateField<ProfileTypeKeys> ("My Prof skills", "lookingForAJobDescription", [], Textarea)}
             </div>
 
 
         <div><b>About Me:</b>
-            {CreateField ("About Me...", "aboutMe", [], Textarea)}
+            {CreateField<ProfileTypeKeys> ("About Me...", "aboutMe", [], Textarea)}
         </div>
 
 
@@ -43,5 +49,6 @@ const ProfileDataForm = ({handleSubmit, profile, error}) => {
     </form>
 }
 //не срабатывает инициализация формы с помощью параметра initialValues={profile}.в билде такого не будет но добавлены доп условия после эит-профайл
-const ProfileDataReduxForm = reduxForm({form: 'edit-profile', enableReinitialize: true, destroyOnUnmount: false})(ProfileDataForm)
+
+const ProfileDataReduxForm = reduxForm<ProfileType, PropsType>({form: 'edit-profile', enableReinitialize: true, destroyOnUnmount: false})(ProfileDataForm)
 export default ProfileDataReduxForm

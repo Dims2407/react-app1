@@ -8,7 +8,6 @@ import {compose} from "redux";
 
 
 
-
 class ProfileContainer extends React.Component {
 
     constructor(props) {
@@ -77,6 +76,15 @@ class ProfileContainer extends React.Component {
     }
 }
 
+
+
+let mapStateToProps = (state) => ({
+    profile: state.profilePage.profile,
+    status: state.profilePage.status,
+    autorizedUserId: state.auth.id,
+    isAuth: state.auth.isAuth
+})
+
 // wrapper to use react router's v6 hooks in class component (to use HOC pattern, like in router v5)
 function withRouter(Component) {
 
@@ -93,12 +101,6 @@ function withRouter(Component) {
     return ComponentWithRouterProp;
 }
 
-let mapStateToProps = (state) => ({
-    profile: state.profilePage.profile,
-    status: state.profilePage.status,
-    autorizedUserId: state.auth.id,
-    isAuth: state.auth.isAuth
-})
 
 export default compose(withRouter,
     connect (mapStateToProps, {getUserProfile, getStatus, updateStatus, savePhoto, saveProfile} )) (ProfileContainer)
