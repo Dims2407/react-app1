@@ -4,8 +4,10 @@ import s from "./Navbar.module.css"
 
 
 
-const Navbar = () => {
-  const ActiveLink = ({isActive}) => isActive ? s.active : s.item ;
+const Navbar: React.FC = () => {
+
+    // @ts-ignore
+    const ActiveLink = ({isActive}) => isActive ? s.active : s.item ;
     return <nav className={s.nav}>
         <div className={s.item}>
         <NavLink to='/profile' className = {ActiveLink}>Profile</NavLink>

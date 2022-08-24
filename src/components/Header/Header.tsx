@@ -3,9 +3,13 @@ import s from "./Header.module.css"
 import {NavLink} from "react-router-dom";
 
 
+type PropsType = {
+    isAuth: boolean
+    login: string | null
+    logout: () => void
+}
 
-
-const Header = (props) => {
+const Header: React.FC<PropsType> = (props) => {
     return <header className={s.header}>
         <img className='App-logo' src="https://cdn-icons-png.flaticon.com/128/238/238588.png"></img>
 

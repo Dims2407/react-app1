@@ -1,8 +1,8 @@
 import React from 'react';
 import Post from './Post/Post';
-import {Field, InjectedFormProps, reduxForm} from "redux-form";
+import {InjectedFormProps, reduxForm} from "redux-form";
 import {maxLengthCreator, required} from "../../../utilities/validators/validators";
-import {CreateField, GetStringKeys, Input, Textarea} from "../../common/controlforms/FormsControls";
+import {CreateField, GetStringKeys, Textarea} from "../../common/controlforms/FormsControls";
 import {PostType} from "../../../Types/types";
 
 
@@ -35,12 +35,16 @@ let AddNewPostForm: React.FC<InjectedFormProps<AddPostFormValuesType, PropsType 
 const AddNewPostFormRedux = reduxForm<AddPostFormValuesType, PropsType>({form: 'profileAddNewPostForm'})(AddNewPostForm)
 
 
-type PostsPropsType = {
+export type MapPropsType = {
     posts: Array<PostType>
+
+}
+export type DispatchPropsType = {
+
     addPost: (newPostText:string) => void
 }
 
-const Myposts: React.FC<PostsPropsType> = props => {
+const Myposts: React.FC<MapPropsType & DispatchPropsType> = props => {
 
     let postsElements = props.posts.map(p => <Post key={p.id} message={p.message} likesCount={p.likesCount} />)
 

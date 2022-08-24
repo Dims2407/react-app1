@@ -50,8 +50,6 @@ class App extends Component { //<MapPropsType & DispatchPropsType> {
 
 
 
-
-        // @ts-ignore
         return (
 
           <div className="app-wrapper">

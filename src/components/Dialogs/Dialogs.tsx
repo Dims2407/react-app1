@@ -10,6 +10,7 @@ import {AddMessageFormRedux} from "./AddMessageForm/AddMessageForm";
 type PropsType = {
     messagesPage: InitialStateType
     sendMessage: (messageText: string) => void
+
 }
 
 export type NewMessageFormValuesType = {
@@ -25,8 +26,9 @@ const Dialogs: React.FC<PropsType> = (props) => {
 
     let dialogsElements = state.dialogs
         .map(d => <DialogItem name={d.name} key={d.id} id={d.id} />)
+
     let messagesElements = state.messages
-        .map(m => <Message message={m.message} key={m.id} id={m.id} />)
+        .map(m => <Message message={m.message} key={m.id} />)
 
 
 

@@ -9,7 +9,7 @@ import {ContactsType, ProfileType} from "../../../Types/types";
 
 
 type PropsType = {
-    profile: ProfileType
+    profile: ProfileType | null
     status:string
     isOwner:boolean
     updateStatus: (status: string) => void
