@@ -12,5 +12,7 @@
 }
 
 .userPhoto {width: 50px;
-    animation: imgs infinite 20s linear;}
+    animation: imgs infinite 20s linear;
+border-radius: 50%;
+}
 

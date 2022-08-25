@@ -16,6 +16,9 @@ let RootReducer = combineReducers({
     form: formReducer,
 });
 
+
+export type AppDispatch = typeof store.dispatch
+
 type RootReducerType = typeof RootReducer
 export type AppStateType = ReturnType<RootReducerType>
 

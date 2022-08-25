@@ -2,13 +2,14 @@ import React, {Component, Suspense}  from 'react';
 import {Route, Routes} from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
-import Login from "./components/Login/Login";
+import {LoginPage} from "./components/Login/Login";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import {connect} from "react-redux";
 import {initializeApp} from "./redux/app-reducer";
 import Preloader from "./components/common/preloader/preloader";
 import  {AppStateType} from "./redux/redux-store";
 import {compose} from "redux";
+import {UsersPage} from "./components/Users/UsersConteiner";
 //import Music from './components/Music/Music';
 //import News from './components/News/News';
 //import Settings from './components/Settings/Settings';
@@ -61,8 +62,8 @@ class App extends Component { //<MapPropsType & DispatchPropsType> {
                 <Route path="/dialogs/*" element={<DialogsConteiner/>}/>
                 <Route path="/profile/:userId" element={<ProfileContainer/>}/>
                 <Route path="/profile/*" element={<ProfileContainer/>}/>
-                <Route path="/users" element={<UsersConteiner pageTitle={"Воины"} />}/>
-                <Route path="/login" element={<Login/>}/>
+                <Route path="/users" element={<UsersPage pageTitle={"Воины"} />}/>
+                <Route path="/login" element={<LoginPage/>}/>
 
 
                 {/*<Route path="/news" element={<News/>}/>*/}
