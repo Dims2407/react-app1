@@ -38,11 +38,6 @@ const Dialogs: React.FC<PropsType> = (props) => {
 
     return (
         <div className={s.dialogs}>
-            <div>
-                <img src="https://vk.com/images/icons/im_favorites_100.png"></img>
-                <img src="https://sun9-43.userapi.com/s/v1/ig2/7Lh0dw-wI_lBZeaQ2AsCJY0FJZYMJ36tYdSK0BXtElarq95kY0INyXPR5acOo-sGJZDwm1v7x8LeAid8bf2xWNa6.jpg?size=50x50&quality=96&crop=221,1,957,957&ava=1"></img>
-                <img src="https://sun9-2.userapi.com/s/v1/ig2/ZGba-x9up4Cuf3m9YNQou-HJvMEBoDiDAhoo7PhDwDIUwGRfY8RhRNfexMVhBDsWZ9mAjBPgYqARwVFOB_qB8YVK.jpg?size=50x50&quality=96&crop=4,118,1615,1615&ava=1"></img>
-            </div>
             <div className={s.dialogsItems}>
                 {dialogsElements}
             </div>

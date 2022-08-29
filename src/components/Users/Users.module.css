@@ -1,18 +1,17 @@
-@keyframes imgs {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
+/*@keyframes imgs {*/
+/*    from {*/
+/*        transform: rotate(0deg);*/
+/*    }*/
+/*    to {*/
+/*        transform: rotate(360deg);*/
+/*    }*/
+/*}*/
 
-.selectedPage {
-    font-weight: bold;
-}
+/*.selectedPage {*/
+/*    font-weight: bold;*/
+/*}*/
 
-.userPhoto {width: 50px;
-    animation: imgs infinite 20s linear;
-border-radius: 50%;
+.userPhoto {width: 100px;
+    border-radius: 50%;
 }
 

@@ -18,6 +18,8 @@ const Navbar: React.FC = () => {
         <div className={s.item}>
             <NavLink to='/users' className = {ActiveLink}>Users</NavLink>
         </div>
+
+
         <div className={s.item}>
           <NavLink to='/news' className = {ActiveLink}>News</NavLink>
         </div>
