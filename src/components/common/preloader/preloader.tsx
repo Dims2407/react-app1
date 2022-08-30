@@ -4,7 +4,7 @@ import React from "react";
 import loader from "../../../assets/images/loader.gif";
 
 let Preloader: React.FC = () => {
-    return  <img src={loader}/>
+    return  <img src={loader} alt={"Loading..."}/>
 }
 
 export default Preloader

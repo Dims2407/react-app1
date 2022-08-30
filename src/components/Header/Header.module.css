@@ -1,18 +1,18 @@
-.header {
-    grid-area: h;
-    background-color: green;
-  } 
-  .header img {
-    width: 55px;
-    margin-top: 3px;
-    margin-left: 3px;
-  }
+/*.header {*/
+/*    grid-area: h;*/
+/*    background-color: green;*/
+/*  } */
+/*  .header img {*/
+/*    width: 55px;*/
+/*    margin-top: 3px;*/
+/*    margin-left: 3px;*/
+/*  }*/
 
-  .loginBlock {
-      float: right;
+/*  .loginBlock {*/
+/*      float: right;*/
 
-  }
-.loginBlock a {
-    color: aliceblue;
-}
-  
+/*  }*/
+/*.loginBlock a {*/
+/*    color: aliceblue;*/
+/*}*/
+/**/

@@ -13,13 +13,19 @@ code {
 }
 
 .logo {
-  height: 32px;
-  margin: 16px;
-  background: rgba(255, 255, 255, 0.3);
+  color: aqua;
+  text-align: center;
+  margin: 38px;
+
+}
+
+.logo img {
+  width: 40px;
+  margin-left: 35%;
 }
 
 .site-layout .site-layout-background {
-  background: #fff;
+  background: rgba(157, 204, 236, 0.83);
 }
 [data-theme="dark"] .site-layout .site-layout-background {
   background: #141414;

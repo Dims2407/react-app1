@@ -42,7 +42,7 @@ const ProfileInfo: React.FC<PropsType> = (props) => {
          })}
 
     return <div className={s.content}>
-        <img src="https://proumnyjdom.ru/wp-content/uploads/2019/06/1365401196_teplye-oboi-1-1024x557.jpeg"></img>
+        {/*<img src="https://proumnyjdom.ru/wp-content/uploads/2019/06/1365401196_teplye-oboi-1-1024x557.jpeg"></img>*/}
         <div className={s.avatar}>
             <img src={props.profile.photos.large || usersPhoto}/>
             <div>  {props.isOwner && <input type={"file"} onChange={onMainPhotoSelected}/>}</div>
