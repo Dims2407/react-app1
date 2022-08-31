@@ -74,19 +74,19 @@ const items = [
 const App = () => {
 
 
-    // const initialized = useSelector(initializedApp)
-    //
-    // const dispatch = useDispatch()
-    //
-    // const _initializeApp = () => {
-    //
-    //     dispatch(initializeApp() as unknown as AnyAction)
-    // }
-    //
-    //
-    // useEffect(() => {
-    //     _initializeApp()
-    // }, [])
+    const initialized = useSelector(initializedApp)
+
+    const dispatch = useDispatch()
+
+    const _initializeApp = (initialized: boolean) => {
+
+        dispatch(initializeApp() as unknown as AnyAction)
+    }
+
+
+    useEffect(() => {
+        _initializeApp(initialized)
+    }, [])
     {
         const [collapsed, setCollapsed] = useState(false);
         return (
