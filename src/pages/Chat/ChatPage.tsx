@@ -29,15 +29,19 @@ const Chat: React.FC = () => {
 
     useEffect(()=>{
     dispatch(startListeningMessages() as unknown as AnyAction)
+
     return () => {
         dispatch(stopListeningMessages() as unknown as AnyAction)
+
     }
-}, [])
+
+}, [dispatch])
 
 
 
     return <div>
         {status === 'error' && <div>Some error occured. Please refresh the page </div>}
+
         <Messages />
         <FormForAddMessages/>
 
@@ -49,13 +53,15 @@ const Messages: React.FC = () => {
     const [isAutoScroll, setIsAutoScroll] = useState(true)
     const scrollHandler = (e: React.UIEvent<HTMLDivElement, UIEvent>) => {
         const element = e.currentTarget
-        if (Math.abs((element.scrollHeight - element.scrollTop) - element.clientHeight) < 100)
+        if (Math.abs((element.scrollHeight - element.scrollTop) - element.clientHeight) < 70)
         {
             !isAutoScroll && setIsAutoScroll(true)
         } else {
             isAutoScroll && setIsAutoScroll(false)
         }
     }
+
+
 
     useEffect(() => {
         if (isAutoScroll) {
@@ -65,20 +71,22 @@ const Messages: React.FC = () => {
 
     return <div style={{height: '400px', overflowY: 'auto'}} onScroll={scrollHandler}>
         {messages.map((m) => <Message key={m.id} message={m}/>)}
-<div ref={messagesAnchorRef}></div>
+<div ref={messagesAnchorRef}/>
     </div>
 }
 
-const Message: React.FC<{ message: ChatMessageType }> = React.memo(({message}) => {
+const Message: React.FC<{ message: ChatMessageType }> = ({message}) => {
         console.log('>>>>>>>>Messages')
+
     return <div>
         <img src={message.photo} style={{width: '30px'}}/> <b>{message.userName}</b>
         <br/>
         {message.message}
         <hr/>
     </div>
+
 }
-)
+
 
 const FormForAddMessages: React.FC = () => {
 

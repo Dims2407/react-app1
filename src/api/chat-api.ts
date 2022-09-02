@@ -69,6 +69,7 @@ export const chatAPI = {
         subscribers["status-changed"] = []
         cleanUp()
         ws?.close()
+
     }
     ,
     subscribe(eventName: EventNamesType ,callback: MessagesReceivedSubscriberType | StatusChangedSubscriberType ) {

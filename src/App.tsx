@@ -20,11 +20,12 @@ import Preloader from "./components/common/preloader/preloader";
 import {UsersPage} from "./components/Users/UsersConteiner";
 
 import {Button} from "antd";
-import {AppStateType} from "./redux/redux-store";
+
 import {AnyAction} from "redux";
 
 import {Header} from "./components/Header/Header";
 import {initializedApp} from "./redux/auth-selectors";
+import {Github} from "./components/Github/Github";
 
 //import Music from './components/Music/Music';
 //import News from './components/News/News';
@@ -62,12 +63,12 @@ function getItem(
 }
 
 const items = [
-    getItem(<Link to='/profile'>Profile</Link>, '1', <PieChartOutlined/>),
-    getItem(<Link to='/users'>Users</Link>, '2', <DesktopOutlined/>),
+    getItem(<Link to='/profile'>Profile</Link>, '1', <UserOutlined/>),
+    getItem(<Link to='/users'>Users</Link>, '2', <TeamOutlined/>),
     getItem(<Link to='/dialogs'>Messages</Link>, '3', <DesktopOutlined/>),
 
-    getItem(<Link to='/"*"'>Options</Link>, 'sub1', <UserOutlined/>),
-    getItem(<Link to='/chat'>Chat</Link>, 'sub2', <TeamOutlined/>),
+    getItem(<Link to='/git'>GIT</Link>, '4', <PieChartOutlined/>),
+    getItem(<Link to='/chat'>Chat</Link>, '5', <TeamOutlined/>),
     getItem('Files', '10', <FileOutlined/>),
 ];
 
@@ -124,6 +125,7 @@ const App = () => {
                                             <Route path="/users" element={<UsersPage pageTitle={"All users:"}/>}/>
                                             <Route path="/login" element={<LoginPage/>}/>
                                             <Route path="/chat" element={<ChatPage/>}/>
+                                            <Route path="/git" element={<Github/>}/>
                                             <Route path="/*" element={
                                                 <div>NOT FOUND
                                                     <Button>OK</Button>
