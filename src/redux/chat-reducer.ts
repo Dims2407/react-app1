@@ -46,8 +46,8 @@ export const actions = {
         ({type: "MESSAGES_RECEIVED", payload: {messages}} as const),
     statusChanged: (status: StatusType) =>
         ({type: "STATUS_CHANGED", payload: {status}} as const),
-      clearMessages: () =>
-         ({type: "CLEAR_MESSAGES", payload: []} as const)
+      clearMessages: (messages: ChatMessageAPIType[]) =>
+         ({type: "CLEAR_MESSAGES", payload: [messages]} as const)
 
 }
 
@@ -86,7 +86,7 @@ export const stopListeningMessages = (): ThunkType => async (dispatch) => {
     chatAPI.unsubscribe('status-changed', statusChangedHandlerCreator(dispatch))
     chatAPI.unsubscribe('messages-received', newMessageHandlerCreator(dispatch))
     chatAPI.stop()
-    dispatch(actions.clearMessages())
+    dispatch(actions.clearMessages([]))
 
 
 }

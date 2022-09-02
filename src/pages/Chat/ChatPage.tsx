@@ -20,7 +20,7 @@ const ChatPage: React.FC = React.memo(() => {
     }
 )
 
-const Chat: React.FC = () => {
+const Chat: React.FC = React.memo(() => {
     const dispatch = useDispatch()
     const status = useSelector((state: AppStateType) => state.chat.status)
 
@@ -41,19 +41,23 @@ const Chat: React.FC = () => {
 
     return <div>
         {status === 'error' && <div>Some error occured. Please refresh the page </div>}
-
+<>
         <Messages />
         <FormForAddMessages/>
-
+</>
     </div>
-}
-const Messages: React.FC = () => {
+})
+
+const Messages: React.FC = React.memo(() => {
+
+
+    //console.log('>>>>>>>>Messages')
     const messages = useSelector((state: AppStateType) => state.chat.messages)
     const messagesAnchorRef = useRef<HTMLDivElement>(null)
     const [isAutoScroll, setIsAutoScroll] = useState(true)
     const scrollHandler = (e: React.UIEvent<HTMLDivElement, UIEvent>) => {
         const element = e.currentTarget
-        if (Math.abs((element.scrollHeight - element.scrollTop) - element.clientHeight) < 70)
+        if (Math.abs((element.scrollHeight - element.scrollTop) - element.clientHeight) < 300)
         {
             !isAutoScroll && setIsAutoScroll(true)
         } else {
@@ -73,10 +77,9 @@ const Messages: React.FC = () => {
         {messages.map((m) => <Message key={m.id} message={m}/>)}
 <div ref={messagesAnchorRef}/>
     </div>
-}
-
-const Message: React.FC<{ message: ChatMessageType }> = ({message}) => {
-        console.log('>>>>>>>>Messages')
+})
+const Message: React.FC<{ message: ChatMessageType }> = React.memo(({message}) => {
+    //console.log('>>>>>>>>Message')
 
     return <div>
         <img src={message.photo} style={{width: '30px'}}/> <b>{message.userName}</b>
@@ -85,10 +88,10 @@ const Message: React.FC<{ message: ChatMessageType }> = ({message}) => {
         <hr/>
     </div>
 
-}
+})
 
 
-const FormForAddMessages: React.FC = () => {
+const FormForAddMessages: React.FC = React.memo(() => {
 
     const [message, setMessage] = useState('')
     const dispatch = useDispatch()
@@ -116,6 +119,6 @@ const FormForAddMessages: React.FC = () => {
             <button disabled={status !==  'ready'} onClick={sendMessageHandler}>Send</button>
         </div>
     </div>
-}
+})
 
 export default ChatPage

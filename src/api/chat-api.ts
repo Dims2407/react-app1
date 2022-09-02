@@ -56,9 +56,6 @@ function createChannel() {
 
 }
 
-
-
-
 export const chatAPI = {
 
     start() {
@@ -69,7 +66,6 @@ export const chatAPI = {
         subscribers["status-changed"] = []
         cleanUp()
         ws?.close()
-
     }
     ,
     subscribe(eventName: EventNamesType ,callback: MessagesReceivedSubscriberType | StatusChangedSubscriberType ) {
