@@ -135,7 +135,7 @@ if (seconds < 1) {
 
 
 export const Github = React.memo(() => {
-    let initialSearchState = 'it-kamasutra'
+    let initialSearchState = 'Dims2407'
     const [selectedUser, setSelectedUser] = useState<SearchUserType | null>(null)
     const [searchTerm, setSearchTerm] = useState(initialSearchState)
 

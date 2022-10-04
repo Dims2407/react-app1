@@ -26,6 +26,7 @@ import {AnyAction} from "redux";
 import {Header} from "./components/Header/Header";
 import {initializedApp} from "./redux/auth-selectors";
 import {Github} from "./components/Github/Github";
+import Forms from "./Ultimate-forms/Forms";
 
 //import Music from './components/Music/Music';
 //import News from './components/News/News';
@@ -69,7 +70,7 @@ const items = [
 
     getItem(<Link to='/git'>GIT</Link>, '4', <PieChartOutlined/>),
     getItem(<Link to='/chat'>Chat</Link>, '5', <TeamOutlined/>),
-    getItem('Files', '10', <FileOutlined/>),
+    getItem(<Link to='/forms/*'>Forms</Link>, '6', <FileOutlined/>),
 ];
 
 const App = () => {
@@ -126,6 +127,7 @@ const App = () => {
                                             <Route path="/login" element={<LoginPage/>}/>
                                             <Route path="/chat" element={<ChatPage/>}/>
                                             <Route path="/git" element={<Github/>}/>
+                                            <Route path="/forms/*" element={<Forms/>}/>
                                             <Route path="/*" element={
                                                 <div>NOT FOUND
                                                     <Button>OK</Button>
