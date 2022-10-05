@@ -1,14 +1,15 @@
 import React from "react";
-import {Routes ,Route} from 'react-router-dom';
+import {Routes, Route} from 'react-router-dom';
 import {HeaderForms} from "./comp/HeaderForms";
 import {Step1} from "./comp/Step1";
 import {Step2} from "./comp/Step2";
 import {Step3} from "./comp/Step3";
+import {Result} from "./comp/Result";
 
 
 
 
-const Result = () => <>Result</>
+
 
 
 
